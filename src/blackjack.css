@@ -1,0 +1,121 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes dealCard {
+    0% {
+        transform: translateY(-100px) rotate(-90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+}
+
+.card {
+    animation: dealCard 0.4s ease-in-out;
+    transition: transform 0.15s ease-in-out;
+}
+.card:hover {
+    transform: translateY(-10px);
+}
+
+
+h1{
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.215);
+    margin: 0;
+    margin-bottom: 1em;
+    padding: 0.5em;
+}
+
+h2{
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background-image: url(../public/pokerTableBG.jpg);
+}
+
+.card-container{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 1.2em 0;
+}
+
+.card{
+    margin: 0 -2.5em;
+    width: 8em;
+    border-radius: 5px;
+}
+
+#buttons-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.action-button{
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    border: 2px solid black;
+    padding: 0.5em 1.5em;
+    border-radius: 10px;
+    text-align: center;
+    transition: filter 0.2s ease-in-out;
+}
+
+/* on hover darken the button */
+.action-button:hover{
+    filter: brightness(0.9);
+}
+
+.action-button{
+    margin-top: 1em;
+}
+
+button#hit{
+    background-color: rgb(190, 0, 211);
+}
+button#stand{
+    background-color: rgb(219, 106, 0);
+}
+
+button.totals {
+    width: 2em;
+    height: 2em;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border-radius: 10px;
+    cursor: default;
+    font-weight: bolder;
+    font-size: 1.5em;
+    border: none;
+}
+
+
+.disabled{
+    cursor: not-allowed;
+    background-color: rgba(0, 0, 0, 0.205) !important;
+}
+
+#dealer-container, #player-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4em;
+    padding-left: 2em;
+}
+
+.players-title{
+    margin-left: -2em;
+}
