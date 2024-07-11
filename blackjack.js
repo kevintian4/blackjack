@@ -4,11 +4,11 @@ let playerAces = 0;
 let dealerAces = 0;
 let canHit = true;
 
-const flipSound = new Audio('../public/sounds/flip.wav');
-const dealSound = new Audio('../public/sounds/deal.wav');
-const winSound = new Audio('../public/sounds/win.wav');
-const tieSound = new Audio('../public/sounds/tie.wav');
-const loseSound = new Audio('../public/sounds/lose.wav');
+const flipSound = new Audio('public/sounds/card-flip.wav');
+const dealSound = new Audio('public/sounds/deal.wav');
+const winSound = new Audio('public/sounds/win.wav');
+const tieSound = new Audio('public/sounds/tie.wav');
+const loseSound = new Audio('public/sounds/lose.wav');
 
 function playSound(sound) {
     sound.currentTime = 0;
@@ -110,7 +110,7 @@ function createCard() {
 
     card.cardSuit = cardSuit;
     card.displayValue = displayValue;
-    card.src = `../public/cards/${displayValue}-${cardSuit}.png`
+    card.src = `public/cards/${displayValue}-${cardSuit}.png`
     return card
 }
 
@@ -130,7 +130,7 @@ function resetGame() {
 
     const dealerCard1Back = document.createElement('img'); // Create a back card element
     dealerCard1Back.classList.add('card');
-    dealerCard1Back.src = '../public/cards/BACK.png';
+    dealerCard1Back.src = 'public/cards/BACK.png';
 
     playerHand.append(playerCard1);
     playerHand.append(playerCard2);
@@ -184,8 +184,8 @@ function delay(ms) {
 async function dealerDrawUpTo17() {
     await delay(800);
     playSound(flipSound);
-    const dealerCard1Back = dealerHand.querySelector('img[src="../public/cards/BACK.png"]');
-    dealerCard1Back.src = `../public/cards/${dealerCard1.displayValue}-${dealerCard1.cardSuit}.png`;
+    const dealerCard1Back = dealerHand.querySelector('img[src="public/cards/BACK.png"]');
+    dealerCard1Back.src = `public/cards/${dealerCard1.displayValue}-${dealerCard1.cardSuit}.png`;
     dealerTotal += dealerCard1.cardValue;
     if (dealerCard1.cardValue === 11) {
         dealerAces += 1;
@@ -221,8 +221,8 @@ async function blackjack() {
     // Reveal the hidden dealer card
     await delay(800);
     playSound(flipSound);
-    const dealerCard1Back = dealerHand.querySelector('img[src="../public/cards/BACK.png"]');
-    dealerCard1Back.src = `../public/cards/${dealerCard1.displayValue}-${dealerCard1.cardSuit}.png`;
+    const dealerCard1Back = dealerHand.querySelector('img[src="public/cards/BACK.png"]');
+    dealerCard1Back.src = `public/cards/${dealerCard1.displayValue}-${dealerCard1.cardSuit}.png`;
     dealerTotal += dealerCard1.cardValue;
     if (dealerTotal == 22) {    // Case of double aces
         dealerTotal -= 10;
