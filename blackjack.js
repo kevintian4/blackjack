@@ -212,7 +212,7 @@ async function dealerDrawUpTo17() {
         }
         
         curDealerTotal.textContent = dealerTotal.toString();
-        await delay(800);
+        await delay(400);
     }
     checkWin();
 }
@@ -234,21 +234,25 @@ async function blackjack() {
     checkWin();
 }
 
-function checkWin () {
+async function checkWin () {
     if (dealerTotal > 21) {
         playSound(winSound);
+        await delay(100)
         alert('Dealer bust! You win!')
     }
     else if (playerTotal > dealerTotal) {
         playSound(winSound);
+        await delay(100)
         alert('You win!')
     }
     else if (playerTotal < dealerTotal) {
         playSound(loseSound);
+        await delay(100)
         alert('You lose')
     }
     else {
         playSound(tieSound);
+        await delay(100)
         alert('Push')
     }
     resetGame()
